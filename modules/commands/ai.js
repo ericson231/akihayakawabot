@@ -121,8 +121,8 @@ async function convertImageToCaption(imageURL, api, event, inputText) {
   try {
     api.sendMessage("Generating response ✅", event.threadID, event.messageID);
 
-    const response = await axios.get(`https://apis-samir.onrender.com/gemini-pro?&text=${encodeURIComponent(inputText)}&url=${encodeURIComponent(imageURL)}`);
-    const caption = response.data;
+    const response = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(inputText)}&url=${encodeURIComponent(imageURL)}`);
+    const caption = response.data.gemini;
 
     if (caption) {
       const formattedCaption = formatFont(caption);
@@ -176,9 +176,9 @@ module.exports.handleEvent = async function ({ api, event }) {
 
   try {
     var uid = event.senderID;
-    const response = await axios.get(`https://apis-samir.onrender.com/Gemini?&text=${encodeURIComponent(inputText)}&uid=${uid}`);
-    if (response.status === 200 && response.data.candidates && response.data.candidates[0] && response.data.candidates[0].content && response.data.candidates[0].content.parts) {
-      let formattedResponse = formatFont(response.data.candidates[0].content.parts[0].text);
+    const response = await axios.get(`https://ai-1stclass-nemory-project.vercel.app/api/llama?ask=${encodeURIComponent(inputText)}`);
+    if (response.status === 200) {
+      let formattedResponse = formatFont(response.data.response);
         formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
         api.sendMessage(`${formattedResponse}`, event.threadID, event.messageID);
     } else {
