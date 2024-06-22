@@ -83,14 +83,14 @@ module.exports.handleEvent = async function({
                 let userName = getFirstName(userName1);
 
                 api.sendMessage({
-                        body: `Ano tangina mo ${userName}`,
+                        body: `Sabaa nimo ${userName} oy unsa man?`,
                         mentions: [{ tag: userName, id: event.senderID }],
                     },
                     event.threadID,
                     (err) => {
                         if (err) {
                             console.error(err);
-                            api.sendMessage(`Ano tangina mo ${userName}`, event.threadID, event.messageID);
+                            api.sendMessage(`Sabaa nimo ${userName} oy unsa man?`, event.threadID, event.messageID);
                         }
                     }
                 );
