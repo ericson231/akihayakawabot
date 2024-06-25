@@ -76,7 +76,8 @@ module.exports.config = {
   
 	const imgP = [];
 	const img = [
-	  "https://i.imgur.com/PfmmlIJ.gif"
+	//   "https://i.imgur.com/PfmmlIJ.gif"
+		"https://i.postimg.cc/J0tpTgMd/PfmmlIJ.gif"
 	];
 	const rdimg = img[Math.floor(Math.random() * img.length)];
 	const help = __dirname + "/cache/aki.gif";
