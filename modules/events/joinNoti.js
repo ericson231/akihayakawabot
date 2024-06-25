@@ -221,7 +221,7 @@ module.exports.run = async function ({ api, event, Users }) {
       for (let o = 0; o < event.logMessageData.addedParticipants.length; o++) {
         let pathImg = __dirname + `/cache/join/${o}.gif`;
         var ok = [
-          'https://i.ibb.co/JpqpPyG/image.png'
+          'https://i.postimg.cc/8cTk8Rjv/lgyZdxC.gif'
         ]
         let background = (await axios.get(encodeURI(`${ok[Math.floor(Math.random() * ok.length)]}`), { responseType: "arraybuffer", })).data;
         fs.writeFileSync(pathImg, Buffer.from(background, "utf-8"));
