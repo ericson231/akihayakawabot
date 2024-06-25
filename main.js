@@ -1,32 +1,47 @@
 const https = require('https');
 
-const pingUrl = "https://google.com";
+// const pingUrl = "https://google.com";
 
-let totalMinutes = 0;
+// let totalMinutes = 0;
 
 function keepAlive() {
-  setInterval(() => {
-      https.get(pingUrl, (response) => {
-          if (response.statusCode === 200) {
-              totalMinutes++;
-              const days = Math.floor(totalMinutes / 1440); // 1440 minutes in a day
-              const hours = Math.floor((totalMinutes % 1440) / 60); // Remaining minutes converted to hours
-              const minutes = totalMinutes % 60; // Remaining minutes
+  // setInterval(() => {
+  //     https.get(pingUrl, (response) => {
+  //         if (response.statusCode === 200) {
+  //             totalMinutes++;
+  //             const days = Math.floor(totalMinutes / 1440); // 1440 minutes in a day
+  //             const hours = Math.floor((totalMinutes % 1440) / 60); // Remaining minutes converted to hours
+  //             const minutes = totalMinutes % 60; // Remaining minutes
 
-              const daysText = days > 0 ? `${days} day${days !== 1 ? 's' : ''}` : '';
-              const hoursText = hours > 0 ? `${hours} hour${hours !== 1 ? 's' : ''}` : '';
-              const minutesText = minutes > 0 ? `${minutes} minute${minutes !== 1 ? 's' : ''}` : '';
+  //             const daysText = days > 0 ? `${days} day${days !== 1 ? 's' : ''}` : '';
+  //             const hoursText = hours > 0 ? `${hours} hour${hours !== 1 ? 's' : ''}` : '';
+  //             const minutesText = minutes > 0 ? `${minutes} minute${minutes !== 1 ? 's' : ''}` : '';
 
-              const uptimeText = daysText + (daysText && (hoursText || minutesText) ? ', ' : '') + hoursText + (hoursText && minutesText ? ', ' : '') + minutesText;
+  //             const uptimeText = daysText + (daysText && (hoursText || minutesText) ? ', ' : '') + hoursText + (hoursText && minutesText ? ', ' : '') + minutesText;
 
-              console.log(`UPTIME STATUS: ${uptimeText}`);
-          } else {
-              console.log(`Received ${response.statusCode} status code. Check your application.`);
-          }
-      }).on('error', (error) => {
-          console.error(`An error occurred: ${error.message}`);
-      });
-  }, 60000); // Send a request every 1 minute
+  //             console.log(`UPTIME STATUS: ${uptimeText}`);
+  //         } else {
+  //             console.log(`Received ${response.statusCode} status code. Check your application.`);
+  //         }
+  //     }).on('error', (error) => {
+  //         console.error(`An error occurred: ${error.message}`);
+  //     });
+  // }, 60000); // Send a request every 1 minute
+    setInterval(() => {
+      const uptime = Date.now() - global.client.timeStart;
+      const totalMinutes = Math.floor(uptime / 60000);
+      const days = Math.floor(totalMinutes / 1440); // 1440 minutes in a day
+      const hours = Math.floor((totalMinutes % 1440) / 60); // Remaining minutes converted to hours
+      const minutes = totalMinutes % 60; // Remaining minutes
+
+      const daysText = days > 0 ? `${days} day${days !== 1 ? 's' : ''}` : '';
+      const hoursText = hours > 0 ? `${hours} hour${hours !== 1 ? 's' : ''}` : '';
+      const minutesText = minutes > 0 ? `${minutes} minute${minutes !== 1 ? 's' : ''}` : '';
+
+      const uptimeText = daysText + (daysText && (hoursText || minutesText) ? ', ' : '') + hoursText + (hoursText && minutesText ? ', ' : '') + minutesText;
+
+      console.log(`UPTIME STATUS: ${uptimeText}`);
+    }, 60000); // Update every minute
 }
 
 // Main application logic here
