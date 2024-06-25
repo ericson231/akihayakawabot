@@ -66,7 +66,10 @@ module.exports.run = async function({
         text = event.messageReply.body;
     }
     if (!text) return api.sendMessage("Enter the content of the comment on the board", threadID, messageID);
-    let getPorn = (await axios.get(`https://i.imgur.com/aOZUbNm.jpg`, {
+    // let getPorn = (await axios.get(`https://i.imgur.com/aOZUbNm.jpg`, {
+    //     responseType: 'arraybuffer'
+    // })).data;
+    let getPorn = (await axios.get(`https://i.postimg.cc/RV1Nq0cG/image.png`, {
         responseType: 'arraybuffer'
     })).data;
     fs.writeFileSync(pathImg, Buffer.from(getPorn, 'utf-8'));

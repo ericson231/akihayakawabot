@@ -55,7 +55,8 @@ module.exports.run = async function({ api, event, args }) {
         text = event.messageReply.body;
     }
 	if (!text) return api.sendMessage("Enter the content to comment on the board", threadID, messageID);
-	let getImage = (await axios.get(`https://i.imgur.com/Jl7sYMm.jpeg`, { responseType: 'arraybuffer' })).data; // image link
+	// let getImage = (await axios.get(`https://i.imgur.com/Jl7sYMm.jpeg`, { responseType: 'arraybuffer' })).data; // image link
+	let getImage = (await axios.get(`https://i.postimg.cc/C5G6n2HZ/image.png`, { responseType: 'arraybuffer' })).data; // image link
 	fs.writeFileSync(pathImg, Buffer.from(getImage, 'utf-8'));
 	let baseImage = await loadImage(pathImg);
 	let canvas = createCanvas(baseImage.width, baseImage.height);
