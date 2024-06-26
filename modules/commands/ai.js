@@ -125,7 +125,8 @@ async function convertImageToCaption(imageURL, api, event, inputText) {
     const caption = response.data.gemini;
 
     if (caption) {
-      const formattedCaption = formatFont(caption);
+      let formattedCaption = formatFont(caption);
+      formattedCaption = formattedCaption.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
       api.sendMessage(`${formattedCaption}`, event.threadID, event.messageID);
     } else {
       api.sendMessage("Failed to recognize image.", event.threadID, event.messageID);
@@ -179,7 +180,7 @@ module.exports.handleEvent = async function ({ api, event }) {
     const response = await axios.get(`https://ai-1stclass-nemory-project.vercel.app/api/llama?ask=${encodeURIComponent(inputText)}`);
     if (response.status === 200) {
       let formattedResponse = formatFont(response.data.response);
-        formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•').replace(/^\* */gm, '').replace(/^\:*/gm, ':');
+        formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
         api.sendMessage(`${formattedResponse}`, event.threadID, event.messageID);
     } else {
         console.error("Error generating response from API");
