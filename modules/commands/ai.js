@@ -179,7 +179,7 @@ module.exports.handleEvent = async function ({ api, event }) {
     const response = await axios.get(`https://ai-1stclass-nemory-project.vercel.app/api/llama?ask=${encodeURIComponent(inputText)}`);
     if (response.status === 200) {
       let formattedResponse = formatFont(response.data.response);
-        formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
+        formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•').replace(/^\* */gm, '').replace(/^\:*/gm, ':');
         api.sendMessage(`${formattedResponse}`, event.threadID, event.messageID);
     } else {
         console.error("Error generating response from API");
