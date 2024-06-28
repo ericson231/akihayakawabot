@@ -1,9 +1,9 @@
 [
     {
       "key": "c_user",
-      "value": "61561473685186",
+      "value": "61561168607874",
       "domain": "facebook.com",
-      "expires": "Sat, 28 Jun 2025 10:47:23 GMT",
+      "expires": "Sat, 28 Jun 2025 10:49:22 GMT",
       "path": "/",
       "secure": true,
       "samesite": "None",
@@ -13,9 +13,9 @@
     },
     {
       "key": "xs",
-      "value": "43:hRtuvzUmNNxzEg:2:1719571643:-1:-1",
+      "value": "30:Ve8u0PhSBwJjMQ:2:1719571762:-1:-1",
       "domain": "facebook.com",
-      "expires": "Sat, 28 Jun 2025 10:47:23 GMT",
+      "expires": "Sat, 28 Jun 2025 10:49:22 GMT",
       "path": "/",
       "secure": true,
       "samesite": "None",
@@ -25,9 +25,9 @@
     },
     {
       "key": "fr",
-      "value": "0YE1Q0Y8bpmx69msR.AWWxuVc9GGfKn8_8TAt5K3hQHHk.BmfpS7..AAA.0.0.BmfpS7.AWXvHjpgkos",
+      "value": "0hBfSWDUsh0ICCNBJ.AWUgmihjebNXmUFchwGHgMga3ro.BmfpUy..AAA.0.0.BmfpUy.AWWzCC8jrwQ",
       "domain": "facebook.com",
-      "expires": "Thu, 26 Sep 2024 10:47:23 GMT",
+      "expires": "Thu, 26 Sep 2024 10:49:22 GMT",
       "path": "/",
       "secure": true,
       "samesite": "None",
@@ -37,9 +37,9 @@
     },
     {
       "key": "datr",
-      "value": "u5R-Zs-dIHzVVOIrhHP-61B-",
+      "value": "MpV-ZmDFVZ-4z35Nu3-qk58A",
       "domain": "facebook.com",
-      "expires": "Sat, 02 Aug 2025 10:47:23 GMT",
+      "expires": "Sat, 02 Aug 2025 10:49:22 GMT",
       "path": "/",
       "secure": true,
       "samesite": "None",
