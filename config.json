@@ -8,8 +8,7 @@
   "encryptSt": true,
   "UPTIME": 0,
   "commandDisabled": [
-    "configv2.js",
-    "rankup.js"
+    "configv2.js"
   ],
   "eventDisabled": [],
   "EMAIL": "",

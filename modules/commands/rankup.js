@@ -60,7 +60,7 @@ module.exports.handleEvent = async function ({ api, event, Currencies, Users, ge
       // "https://i.imgur.com/lHxvt3g.png",
       // "https://i.imgur.com/5RIrt5U.png",
       // "https://i.imgur.com/ImxHke4.png",
-      "https://i.imgur.com/HyVIGOH.gif"
+      "https://i.postimg.cc/J0prtT2Y/HyVIGOH.gif"
     ];
     var rd = background[Math.floor(Math.random() * background.length)];
     // let getAvtmot = (
