@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_API_URL = "https://sensui-useless-apis.codersensui.repl.co";
+const BASE_API_URL = "https://api.truthordarebot.xyz/v1";
 
 module.exports.config = {
   name: "tod",
@@ -49,7 +49,7 @@ module.exports.run = async ({ api, event, args }) => {
 
 async function getRandomPrompt(type) {
   try {
-    const response = await axios.get(`${BASE_API_URL}/api/fun/${type}`);
+    const response = await axios.get(`${BASE_API_URL}/${type}`);
     return response.data.question;
   } catch (error) {
     console.error(`Error fetching ${type} prompt from the API:`, error);
