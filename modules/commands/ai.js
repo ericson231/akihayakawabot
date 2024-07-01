@@ -177,9 +177,9 @@ module.exports.handleEvent = async function ({ api, event }) {
 
   try {
     var uid = event.senderID;
-    const response = await axios.get(`https://ai-1stclass-nemory-project.vercel.app/api/llama?ask=${encodeURIComponent(inputText)}`);
+    const response = await axios.get(`https://samirxpikachu.onrender.com/gpt?content=${encodeURIComponent(inputText)}`);
     if (response.status === 200) {
-      let formattedResponse = formatFont(response.data.response);
+      let formattedResponse = formatFont(response.data.message.content);
         formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
         api.sendMessage(`${formattedResponse}`, event.threadID, event.messageID);
     } else {
