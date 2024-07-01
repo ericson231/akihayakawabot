@@ -21,7 +21,7 @@ module.exports.run = async function({ api, event }) {
     api.sendMessage(`✅ Processing your request. Please wait`, event.threadID, event.messageID);
     let data = await axios.get('https://shoti-srv1.onrender.com/api/v1/request-f');
     var file = fs.createWriteStream(__dirname + "/cache/shoti.mp4");
-    var rqs = request(encodeURI(data.data.url));
+    var rqs = request(encodeURI(data.data.data.url));
     let filePath = __dirname + "/cache/shoti.mp4";
     rqs.pipe(file);
     file.on('finish', async () => {
