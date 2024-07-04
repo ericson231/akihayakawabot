@@ -68,7 +68,7 @@ module.exports.run = async function ({
         api.setMessageReaction(`👎`, event.messageID);
         return api.sendMessage('Please reply to an image or attach an image.', threadID, messageID);
     }
-    api.setMessageReaction(`👍`, event.messageID);
+    api.sendMessage('Processing image. Please wait ✅', event.threadID, event.messageID);
     const imageUrl = messageReply ? messageReply.attachments[0].url : attachments[0].url;
     const userInfo = await api.getUserInfo(event.senderID);
     const userName = userInfo[event.senderID]?.name;
