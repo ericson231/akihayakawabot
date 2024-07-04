@@ -52,7 +52,7 @@ module.exports.config = {
     description: 'Create an art version of an image',
     commandCategory: 'image',
     usages: '[reply to an image]',
-    cooldowns: 0,
+    cooldowns: 5,
 };
 module.exports.run = async function ({
     api,
