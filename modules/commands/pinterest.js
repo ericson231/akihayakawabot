@@ -57,6 +57,10 @@ module.exports.run = async function ({ api, event, args }) {
     const axios = require("axios");
     const fs = require("fs-extra");
     const keySearch = args.join(" ");
+
+    if(!keySearch){
+      return api.sendMessage("Search query cannot be blank!", event.threadID, event.messageID);
+    }
     
     // Set the default number of search results to 9
     const numberSearch = 9;
