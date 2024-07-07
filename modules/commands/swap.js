@@ -137,7 +137,11 @@ module.exports.run = async function ({ api, event }) {
         attachment: fs.createReadStream(swapPath),
       },
       threadID,
-      () => fs.unlinkSync(swapPath),
+      () => {
+        if (fs.existsSync(swapPath)) {
+          fs.unlinkSync(swapPath);
+        }
+      },
       messageID
     );
   } catch (error) {
@@ -149,3 +153,4 @@ module.exports.run = async function ({ api, event }) {
     );
   }
 };
+
