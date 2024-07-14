@@ -110,7 +110,8 @@ module.exports.run = async function({ api, event, args }) {
                 response += `${i + 1}. ${scrimData.spectator[i]}\n`;
             }
             try {
-                const link = `https://i.postimg.cc/hPbxzL6C/scrim.png`;
+                //const link = `https://i.postimg.cc/hPbxzL6C/scrim.png`;
+                const link = `https://i.postimg.cc/P56s5bwy/flux-scrim.png`;
                 const imagepath = path.join(__dirname, 'cache', 'scrim.png');
                 const getImage = (await axios.get(`${link}`, {
                   responseType: 'arraybuffer'
