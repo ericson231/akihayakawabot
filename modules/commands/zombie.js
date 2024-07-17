@@ -36,7 +36,7 @@ module.exports.run = async function ({ api, event }) {
 
   api.sendMessage('Processing image. Please wait ✅', event.threadID, event.messageID);
 
-  const url = `https://samirxpikachu.onrender.com/zombie?imgurl=${encodedImageUrl}`;
+  const url = `https://www.samirxpikachu.run.place/zombie?imgurl=${encodedImageUrl}`;
   try {
     const download = await axios.get(url, {
       responseType: "arraybuffer",

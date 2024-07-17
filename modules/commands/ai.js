@@ -75,7 +75,7 @@ module.exports.handleEvent = async function ({ api, event }) {
 
   try {
     var uid = event.senderID;
-    const response = await axios.get(`https://samirxpikachu.onrender.com/gpt?content=${encodeURIComponent(inputText)}`);
+    const response = await axios.get(`https://www.samirxpikachu.run.place/gpt?content=${encodeURIComponent(inputText)}`);
     if (response.status === 200) {
       let formattedResponse = formatFont(response.data.message.content);
       formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');

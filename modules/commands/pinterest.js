@@ -65,7 +65,7 @@ module.exports.run = async function ({ api, event, args }) {
     // Set the default number of search results to 9
     const numberSearch = 9;
 
-    const res = await axios.get(`https://samirxpikachu.onrender.com/pinterest?query=${encodeURIComponent(keySearch)}&number=${numberSearch}`);
+    const res = await axios.get(`https://www.samirxpikachu.run.place/pinterest?query=${encodeURIComponent(keySearch)}&number=${numberSearch}`);
     api.sendMessage({
       body: `Sending images. Please wait ✅`
     }, event.threadID, event.messageID);

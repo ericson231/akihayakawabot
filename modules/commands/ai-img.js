@@ -23,7 +23,7 @@ module.exports.config = {
 	let query = args.join(" ");
 	if (!query) return api.sendMessage("put text/query", threadID, messageID);
 	let path = __dirname + `/cache/ai-img.png`;
-	const poli = (await axios.get(`https://samirxpikachu.onrender.com/imagine?prompt=${query}`, {
+	const poli = (await axios.get(`https://www.samirxpikachu.run.place/imagine?prompt=${query}`, {
 		responseType: "arraybuffer",
 	})).data;
 	fs.writeFileSync(path, Buffer.from(poli, "utf-8"));

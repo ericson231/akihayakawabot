@@ -42,7 +42,7 @@
 
 //     api.sendMessage('Swapping faces. Please wait ✅', event.threadID, event.messageID);
   
-//     const apiUrl = `https://samirxpikachu.onrender.com/faceswap?sourceUrl=${encodedImageUrl1}&targetUrl=${encodedImageUrl2}`;
+//     const apiUrl = `https://www.samirxpikachu.run.place/faceswap?sourceUrl=${encodedImageUrl1}&targetUrl=${encodedImageUrl2}`;
 //     try {
 //       const downloadSwap = await axios.get(apiUrl, {
 //         responseType: "arraybuffer",

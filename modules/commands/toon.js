@@ -28,7 +28,7 @@ module.exports.run = async ({ api, event, args }) => {
 
   try {
     // Fetch the cartoonized image
-    const toon = (await axios.get(`https://samirxpikachu.onrender.com/cartoon?url=${encodedImageUrl}&model=5&apikey=richixsamir`, {
+    const toon = (await axios.get(`https://www.samirxpikachu.run.place/cartoon?url=${encodedImageUrl}&model=5&apikey=richixsamir`, {
       responseType: 'arraybuffer',
     })).data;
 
