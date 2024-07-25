@@ -5,7 +5,7 @@ const logger = require("./utils/log.js");
 const path = require('path');
 const net = require('net');
 
-const PORT = 8080; // Use Heroku-provided port or default to 3000
+const process.env.PORT || 8080; // Use Heroku-provided port or default to 3000
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/includes/login/cover/index.html'));
