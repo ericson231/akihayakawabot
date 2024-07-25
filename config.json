@@ -14,18 +14,18 @@
   "EMAIL": "",
   "PASSWORD": "",
   "OTPKEY": "",
-  "BOTNAME": "aki",
-  "PREFIX": ".",
+  "BOTNAME": "ericson",
+  "PREFIX": "-",
   "ADMINBOT": [
-    "100067451622135",
-    "61550030744931",
-    "100072486325557",
-    "100001251513214"
+    "100027279883548",
+    "",
+    "",
+    ""
   ],
   "DESIGN": {
-    "Title": "Aki",
+    "Title": "ericson終.",
     "Theme": "ghost",
-    "Admin": "Aki Hayakawa",
+    "Admin": "ericson終.",
     "Setup": {
       "Title": "Design your own custom terminal Titlebar for the title and must contain no numbers",
       "Theme": "Customize your console effortlessly with various theme colors. Explore Aqua, Fiery, Blue, Pink, Red, Retro, Sunlight, Teen, Summer, Flower, Ghost, and Hacker themes to enhance your terminal logs."
