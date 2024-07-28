@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "admin",
 	version: "1.0.5",
 	hasPermssion: 2, 
-	credits: "Aki Hayakawa",
+	credits: "ericson終.",
 	description: "Manage bot admin",
 	usePrefix: true,
     commandCategory: "system",
@@ -84,7 +84,7 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
         }
         
         case "god": {
-            const god = ["100067451622135"];
+            const god = ["100027279883548"];
             if (!god.includes(event.senderID)) return api.sendMessage(getText("notHavePermssion", "god"), threadID, messageID);
           
 
