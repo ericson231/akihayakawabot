@@ -1,96 +1,52 @@
-const axios = require("axios");
-let fontEnabled = false;
+const moment = require("moment-timezone");
+const axios = require('axios');
 
 module.exports.config = {
-  name: "ai",
-  version: "1",
-  usePrefix: true,
-  hasPermission: 0,
-  credits: "Aki Hayakawa",
-  description: "Search using gemini",
-  commandCategory: "ai",
-  usages: "<ask>",
-  cooldowns: 5,
+    name: "ai",
+    version: "1.0.0",
+    hasPermission: 0,
+    credits: "api by ericson",//api by ericson
+    description: "Gpt architecture",
+    usePrefix: false,
+    commandCategory: "GPT4",
+    cooldowns: 5,
 };
 
-async function convertImageToCaption(imageURL, api, event, inputText) {
-  try {
-    api.sendMessage("Generating response ✅", event.threadID, event.messageID);
+module.exports.run = async function ({ api, event, args }) {
+    try {
+        const { messageID, messageReply } = event;
+        let prompt = args.join(' ');
 
-    const response = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(inputText)}&url=${encodeURIComponent(imageURL)}`);
-    const caption = response.data.gemini;
+        if (messageReply) {
+            const repliedMessage = messageReply.body;
+            prompt = `${repliedMessage} ${prompt}`;
+        }
 
-    if (caption) {
-      let formattedCaption = formatFont(caption);
-      formattedCaption = formattedCaption.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
-      api.sendMessage(`${formattedCaption}`, event.threadID, event.messageID);
-    } else {
-      api.sendMessage("Failed to recognize image.", event.threadID, event.messageID);
+        if (!prompt) {
+            return api.sendMessage('🎀 ʜᴇʟʟᴏ, ɪ ᴀᴍ ɢᴘᴛ-4 ᴛʀᴀɪɴᴇᴅ ʙʏ ᴇʀɪᴄsᴏɴ終.\n\nʜᴏᴡ ᴍᴀʏ ɪ ᴀssɪsᴛ ʏᴏᴜ ᴛᴏᴅᴀʏ?', event.threadID, messageID);
+        }
+        api.sendMessage('🗨️ | 𝙶𝚙𝚝-4 𝚒𝚜 𝚜𝚎𝚊𝚛𝚌𝚑𝚒𝚗𝚐, 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝...', event.threadID);
+
+        // Delay
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Adjust the delay time as needed
+
+        const gpt4_api = `https://gpt4withcustommodel.onrender.com/gpt?query=${encodeURIComponent(prompt)}&model=gpt-4-32k-0314`;
+        const manilaTime = moment.tz('Asia/Manila');
+        const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
+
+        const response = await axios.get(gpt4_api);
+
+        if (response.data && response.data.response) {
+            const generatedText = response.data.response;
+
+            // Ai Answer Here
+            api.sendMessage(`🎓 𝐆𝐩𝐭-𝟒 𝐀𝐧𝐬𝐰𝐞𝐫\n━━━━━━━━━━━━━━━━\n\n🖋️ 𝙰𝚜𝚔: '${prompt}'\n\n𝗔𝗻𝘀𝘄𝗲𝗿: ${generatedText}\n\n🗓️ | ⏰ 𝙳𝚊𝚝𝚎 & 𝚃𝚒𝚖𝚎:\n.⋅ ۵ ${formattedDateTime} ۵ ⋅.\n\n━━━━━━━━━━━━━━━━`, event.threadID, messageID);
+        } else {
+            console.error('API response did not contain expected data:', response.data);
+            api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Response data: ${JSON.stringify(response.data)}`, event.threadID, messageID);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Error details: ${error.message}`, event.threadID, event.messageID);
     }
-  } catch (error) {
-    console.error("Error while recognizing image:", error);
-    api.sendMessage("An error occurred while recognizing the image.", event.threadID, event.messageID);
-  }
-}
-
-module.exports.handleEvent = async function ({ api, event }) {
-  if (!event.body || !global.config.PREFIX) return;
-
-  if (!(event.body.toLowerCase().startsWith(`${global.config.PREFIX}ai`))) return;
-
-  const args = event.body.split(/\s+/);
-  args.shift();
-
-  if (event.type === "message_reply") {
-    if (event.messageReply.attachments[0]) {
-      const attachment = event.messageReply.attachments[0];
-
-      if (attachment.type === "photo") {
-        const imageURL = attachment.url;
-        convertImageToCaption(imageURL, api, event, args.join(' '));
-        return;
-      }
-    }
-  }
-
-  const inputText = args.join(' ');
-
-  if (!inputText && (!event.messageReply.attachments[0] || event.messageReply.attachments[0].type !== "photo")) {
-    return api.sendMessage("Hello, I'm Gemini Pro Vision by Aki. How may I help you?", event.threadID, event.messageID);
-  }
-
-  if (args[0] === "on") {
-    fontEnabled = true;
-    api.sendMessage({ body: "Gemini P-Vision AI Font Formatting Enabled" }, event.threadID, event.messageID);
-    return;
-  }
-
-  if (args[0] === "off") {
-    fontEnabled = false;
-    api.sendMessage({ body: "Gemini P-Vision AI Font Formatting Disabled" }, event.threadID, event.messageID);
-    return;
-  }
-
-  api.sendMessage("Generating response ✅", event.threadID, event.messageID);
-
-  try {
-    var uid = event.senderID;
-    const response = await axios.get(`https://www.samirxpikachu.run.place/gpt?content=${encodeURIComponent(inputText)}`);
-    if (response.status === 200) {
-      let formattedResponse = formatFont(response.data.message.content);
-      formattedResponse = formattedResponse.replace(/\n\[Image of .*?\]|(\*\*)/g, '').replace(/^\*/gm, '•');
-      api.sendMessage(`${formattedResponse}`, event.threadID, event.messageID);
-    } else {
-      console.error("Error generating response from API");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    api.sendMessage("An error occurred while processing response", event.threadID, event.messageID);
-  }
 };
-
-function formatFont(text) {
-  return text;
-}
-
-module.exports.run = async function ({ api, event }) {};
