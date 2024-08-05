@@ -6,29 +6,30 @@
   "autoClean": true,
   "adminOnly": false,
   "encryptSt": true,
-  "UPTIME": 0,
-  "commandDisabled": [
-    "configv2.js"
-  ],
+  "UPTIME": 200,
+  "commandDisabled": [],
   "eventDisabled": [],
-  "EMAIL": "",
-  "PASSWORD": "",
-  "OTPKEY": "",
+  "BOTOWNER": "ericson終.",
+  "OWNERLINK": "https://www.facebook.com/ericsonpascua6",
+  "OWNERID": "100027279883548",
+  "BOTCREATOR": "ericson終.",
+  "CREATORLINK": "https://www.facebook.com/ericsonpascua6",
+  "CREATORID": "100027279883548",
   "BOTNAME": "ericson",
   "PREFIX": "-",
   "ADMINBOT": [
     "100027279883548",
-    "100077566404819",
+    "",
     "",
     ""
   ],
   "DESIGN": {
     "Title": "ericson終.",
-    "Theme": "ghost",
+    "Theme": "Ghost",
     "Admin": "ericson終.",
     "Setup": {
-      "Title": "Design your own custom terminal Titlebar for the title and must contain no numbers",
-      "Theme": "Customize your console effortlessly with various theme colors. Explore Aqua, Fiery, Blue, Pink, Red, Retro, Sunlight, Teen, Summer, Flower, Ghost, and Hacker themes to enhance your terminal logs."
+      "Title": "Design your own custom terminal Titlebar with a maximum of 8 characters for the title and must contain no numbers",
+      "Theme": "Effortlessly customize your console with a variety of theme colors, making it easier than ever to create your desired console look. Explore themes like Aqua, Fiery, Blue, Pink, Red, Retro, Sunlight, Teen, Summer, Flower, Ghost, and Hacker to enhance your terminal logs."
     }
   },
   "APPSTATEPATH": "appstate.json",
@@ -44,7 +45,7 @@
     "selfListen": false,
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18"
   },
-  "version": "1.3.2",
+  "version": "1.2.5",
   "daily": {
     "cooldownTime": 43200000,
     "rewardCoin": 500
@@ -54,7 +55,7 @@
   },
   "help": {
     "autoUnsend": false,
-    "delayUnsend": 30
+    "delayUnsend": 150
   },
   "adminUpdate": {
     "autoUnsend": true,
@@ -70,22 +71,34 @@
     "WOLFRAM": "T8J8YV-H265UQ762K"
   },
   "sing": {
-    "YOUTUBE_API": "AIzaSyCqox-KXEwDncsuo2HIpE0MF8J7ATln5Vc",
+    "YOUTUBE_API": "AIzaSyBVDwRSIEvC1VDL7-6Wx8xmmp4de0m0XQc",
     "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
   },
   "video": {
-    "YOUTUBE_API": "AIzaSyBZuIv9MNYOCbGYEZm-9N0hrZKJMob-qT0"
+    "YOUTUBE_API": "AIzaSyDEE1-zZSRVI8lTaQOVsIAQFgL-_BJKvhk"
   },
   "audio": {
-    "YOUTUBE_API": "AIzaSyBZuIv9MNYOCbGYEZm-9N0hrZKJMob-qT0"
+    "YOUTUBE_API": "AIzaSyBVDwRSIEvC1VDL7-6Wx8xmmp4de0m0XQc"
   },
   "menu": {
     "autoUnsend": true,
     "delayUnsend": 60
   },
-  "chemeb": {},
-  "coinflip": {},
   "log": {
     "enable": true
+  },
+  "coinflip": {},
+  "helpv2": {
+    "autoUnsend": true,
+    "delayUnsend": 500
+  },
+  "chemeb": {},
+  "helpall": {
+    "autoUnsend": true,
+    "delayUnsend": 500
+  },
+  "prefix": {
+    "autoUnsend": true,
+    "delayUnsend": 20
   }
 }
